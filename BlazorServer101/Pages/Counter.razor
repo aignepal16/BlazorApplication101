@@ -1,16 +1,14 @@
 ﻿@page "/counter"
+@inherits CounterBase
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p style="font-family:@fontName">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-danger" @onclick="ChangeFont">Toggle font</button>
 
-@code {
-    private int currentCount = 0;
+@*@code {
+   
 
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-}
+}*@
