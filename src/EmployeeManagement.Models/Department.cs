@@ -11,7 +11,7 @@ namespace EmployeeManagement.Models
         public int DepartmentId { get; set; }
         public string DepartmentName { get; set; }
 
-        public virtual IEnumerable<Employee>  Employees { get; set; }
+       // public virtual IEnumerable<Employee>  Employees { get; set; }
 
     }
 }

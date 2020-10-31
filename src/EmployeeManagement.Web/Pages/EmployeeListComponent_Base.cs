@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Models;
+using EmployeeManagement.Web.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,17 @@ namespace EmployeeManagement.Web.Pages
 {
     public class EmployeeListComponent_Base : ComponentBase
     {
-        public IEnumerable<Employee>  Employees { get; set; }
+        [Inject]
+        public IEmployeeService EmployeeService { get; set; }
+
+        public IEnumerable<Employee> Employees { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            await Task.Run(LoadEmployees);
-          
+
+            //await Task.Run(LoadEmployees);
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+
         }
 
         private void LoadEmployees()
@@ -30,7 +36,7 @@ namespace EmployeeManagement.Web.Pages
                 Email = "David@pragimtech.com",
                 DateOfBrith = new DateTime(1980, 10, 5),
                 Gender = Gender.Male,
-                DepartmentId= 1,
+                DepartmentId = 1,
                 PhotoPath = "images/thumnail user1.jpg"
             };
 

@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/MainPage1"
 @inherits EmployeeListComponent_Base
 
 <h3>Employee List Component</h3>
@@ -19,7 +19,7 @@ else
                 </div>
                 <img class="card-img-top imageThumbnail" src="@emp.PhotoPath" />
                 <div class="card-footer text-center">
-                    <a href="#" class="btn btn-primary m-1">View</a>
+                    <a href="@($"employeedetails/{emp.EmployeeId}")" class="btn btn-primary m-1">View</a>
 
                     <a href="#" class="btn btn-primary m-1">Edit</a>
 
